@@ -14,16 +14,14 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "esbuild-loaders": "echo --loader:.svg=dataurl --loader:.png=dataurl",
-    "serve": "npx servor ./public/ index.html 3002 --reload --browse",
+    "esbuild-loaders": "echo --loader:.svg=dataurl --loader:.png=dataurl --loader:.jpg=dataurl",
+    "serve": "npx servor ./public/ index.html 3003",
     "build-css:watch": "esbuild --bundle ./src/index.css --outfile=./public/bundle.css --watch",
     "build:watch": "esbuild ./src/index.jsx $(npm run esbuild-loaders | tail -n 1) --bundle --sourcemap --outfile=./public/bundle.js --watch",
     "start": "npm run build:watch | npm run build-css:watch | npm run serve",
     "build-css": "esbuild --bundle ./src/index.css --outfile=./public/bundle.css --minify",
     "build-js": "esbuild ./src/index.jsx $(npm run esbuild-loaders | tail -n 1) --bundle --minify --outfile=./public/bundle.js",
     "build": "npm run build-css && npm run build-js",
-    "start__": "react-scripts start",
-    "build––": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
